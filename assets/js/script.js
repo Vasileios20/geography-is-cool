@@ -17,7 +17,25 @@ function chooseLevel() {
         x.style.display = "block";
     } else {
         x.style.display = "none";
-        y.style.display = "block"
+        y.style.display = "block";
     }
-
 };
+// Love maths code
+let buttons = document.getElementsByClassName("btn-level");
+
+for (let button of buttons) {
+  button.addEventListener("click", function () {
+    if (this.getAttribute("data-level") === "10-flags") {
+      alert("You clicked 10");
+    } else if (this.getAttribute("data-level") === "25-flags") {
+      alert("You clicked 25");
+    }
+    else if (this.getAttribute("data-level") === "50-flags") {
+      alert("You clicked 50");
+    }
+    else {
+      let gamelevel = this.getAttribute("data-level");
+      alert(`You clicked ${gamelevel}`);
+    }
+  })
+}
