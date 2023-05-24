@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,7 +8,68 @@
     <link rel="stylesheet" href="/assets/css/style.css">
     <title>Document</title>
 </head>
+
 <body>
+    <!-- Start Page -->
+    <div class="container" id="start-page">
+        <div id="home" class="flex-center flex-column">
+            <h2>Geography Is Cool !</h2>
+            <a class="btn" href="#choose-level" id="btn-start">Play</a>
+            <a class="btn" href="/highscores.html">Highscores</a>
+        </div>
+    </div>
+    <!-- Choose Level -->
+    <div class="container" id="choose-level">
+        <a class="btn btn-level" href="#game-page" id="10-flags">10 Flags</a>
+        <a class="btn btn-level" href="#game-page" id="25-flags">10 Flags</a>
+        <a class="btn btn-level" href="#game-page" id="50-flags">50 Flags</a>
+        <a class="btn btn-level" href="#game-page" id="all-flags">All Flags</a>
+    </div>
+    <!-- Game Page -->
+    <section id="game-page">
+        <div class="container">
+            <div id="game" class="justify-center flex-column">
+                <h2>Find the country of</h2>
+                <p class="hidden" id="question-hidden"></p>
+                <img src="#" alt="" id="question">
+                <div class="choice-container">
+                    <p class="choice-prefix">A</p>
+                    <p class="answer">Answer 1</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">B</p>
+                    <p class="answer">Answer 2</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">C</p>
+                    <p class="answer">Answer 3</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">D</p>
+                    <p class="answer">Answer 4</p>
+                </div>
+                <div id="hud">
+                    <div id="hud-item">
+                        <p class="hud-prefix">
+                            Question
+                        </p>
+                        <h2 class="hud-main-text" id="question-counter">
+                            1/2
+                        </h2>
+                    </div>
+                    <div id="hud-item">
+                        <p class="hud-prefix">
+                            Score
+                        </p>
+                        <h2 class="hud-main-text" id="score">
+                            0
+                        </h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="/assets/js/script.js"></script>
 </body>
+
 </html>
