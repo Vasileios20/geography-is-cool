@@ -104,7 +104,7 @@ header {
 /* Start Page */
 
 #start-page {
-    display: none;
+    display: block;
     margin: auto;
 }
 
@@ -117,7 +117,7 @@ header {
 /* Game Page */
 
 #game-page {
-    display: block;
+    display: none;
     margin: auto;
 }
 
