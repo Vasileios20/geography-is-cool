@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@500&display=swap');
+
+:root {
+    font-size: 62.5%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comfortaa', 'cursive', 'sans-serif';
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    background-image: url(../images/hero-img.png);
+    display: flex;
+    flex-direction: column;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 3rem;
+    margin: 1rem 0;
+    padding: 0 0.5rem;
+}
+
+h3 {
+    font-size: 2rem;
+}
+
+header {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+/* UTILITIES */
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 60vh;
+    width: 80vw;
+    background-color: aliceblue;
+    max-width: 80rem;
+    border-radius: 1rem;
+    box-shadow: 0 0.2rem 1.4rem 0;
+}
+
+/* .container > * {
+    
+} */
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+/*BUTTONS*/
+
+.btn {
+    border: 0.1rem solid #000;
+    color: #000;
+    background-color: aliceblue;
+    padding: 0.5rem;
+    text-align: center;
+    padding: 1rem 0;
+    text-decoration: none;
+    width: 10rem;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    border-radius: 0.9rem;
+}
+
+.btn:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.5rem 0 rgba(193, 130, 13, 0.7);
+    transform: translateY(0.1rem);
+    transition: transform 150ms;
+}
+
+.btn[disabled]:hover {
+    cursor: not-allowed;
+    box-shadow: none;
+    transform: none;
+}
+
+
+/* Start Page */
+
+#start-page {
+    display: none;
+    margin: auto;
+}
+
+/* Choose Level Page*/
+#choose-level {
+    display: none;
+    margin: auto;
+}
+
+/* Game Page */
+
+#game-page {
+    display: block;
+    margin: auto;
+}
+
+#game h2 {
+    padding: 0 1rem;
+}
+
+.choice-container {
+    display: flex;
+    margin: 0 1rem 1rem;
+    font-size: 2rem;
+    background-color: rgb(241, 241, 241);
+    flex-basis: 50%;
+    border-radius: 1rem;
+}
+
+.choice-container:hover {
+    cursor: pointer;
+    box-shadow: 0 0.2rem 1.6rem 0;
+    transform: translateY(-0.2rem);
+    transition: transform 150ms;
+    background-color: rgba(221, 215, 141, 0.7);
+}
+
+#question {
+    margin: 2rem auto;
+    width: 20rem;
+}
+
+.choice-prefix {
+    padding: 0.5rem 1rem;
+    background-color: #DCBF85;
+    border-radius: 1rem;
+}
+
+.answer {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.correct {
+    background-color: green;
+}
+
+.incorrect {
+    background-color: red;
+}
+
+
+/* HUD */
+#hud {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+@media screen and (min-width:490px) {
+    #question {
+        width: 30rem;
+        margin: 2rem auto;
+    }
+}

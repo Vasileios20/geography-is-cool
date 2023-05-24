@@ -10,21 +10,29 @@
 </head>
 
 <body>
+    <header>
+        <h1>Geography Is Cool !!</h1>
+    </header>
     <!-- Start Page -->
-    <div class="container" id="start-page">
-        <div id="home" class="flex-center flex-column">
-            <h2>Geography Is Cool !</h2>
-            <a class="btn" href="#choose-level" id="btn-start">Play</a>
-            <a class="btn" href="/highscores.html">Highscores</a>
+    <section id="start-page">
+        <div class="container">
+            <div id="home" class="flex-center flex-column">
+                <h2>Geography Is Cool !</h2>
+                <a class="btn" href="#choose-level" id="btn-start">Play</a>
+                <a class="btn" href="/highscores.html">Highscores</a>
+            </div>
         </div>
-    </div>
+    </section>
     <!-- Choose Level -->
-    <div class="container" id="choose-level">
-        <a class="btn btn-level" href="#game-page" id="10-flags">10 Flags</a>
-        <a class="btn btn-level" href="#game-page" id="25-flags">10 Flags</a>
-        <a class="btn btn-level" href="#game-page" id="50-flags">50 Flags</a>
-        <a class="btn btn-level" href="#game-page" id="all-flags">All Flags</a>
+    <section id="choose-level">
+    <div class="container flex-column choose-level">
+        <h2>Choose level</h2>
+        <a class="btn btn-start" href="#game-page" id="10-flags">10 Flags</a>
+        <a class="btn btn-start" href="#game-page" id="25-flags">25 Flags</a>
+        <a class="btn btn-start" href="#game-page" id="50-flags">50 Flags</a>
+        <a class="btn btn-start" href="#game-page" id="all-flags">All Flags</a>
     </div>
+    </section>
     <!-- Game Page -->
     <section id="game-page">
         <div class="container">
@@ -49,7 +57,7 @@
                     <p class="answer">Answer 4</p>
                 </div>
                 <div id="hud">
-                    <div id="hud-item">
+                    <div class="hud-item">
                         <p class="hud-prefix">
                             Question
                         </p>
@@ -57,7 +65,7 @@
                             1/2
                         </h2>
                     </div>
-                    <div id="hud-item">
+                    <div class="hud-item">
                         <p class="hud-prefix">
                             Score
                         </p>
