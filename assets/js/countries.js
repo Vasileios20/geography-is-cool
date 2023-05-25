@@ -2373,3 +2373,5 @@ export let countries = [
       "name": "Zimbabwe"
     }
   ];
+
+  export const countriesISO  = countries.filter(item => item.iso === true);

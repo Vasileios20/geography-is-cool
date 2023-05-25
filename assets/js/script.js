@@ -1,6 +1,5 @@
 import { questions } from "./questions.js";
-import { countries } from "./countries.js"
-
+import { countries, countriesISO } from "./countries.js"
 
 const choices = Array.from(document.getElementsByClassName("answer"));
 const questionCounterText = document.getElementById("question-counter");
@@ -26,10 +25,15 @@ const MAX_QUESTIONS = 10;
 function startGame() {
     questionCounter = 0;
     score = 0;
-    availableQuestions = [...countries];
-    console.log(availableQuestions);
+    availableQuestions = [...countriesISO];
     getNewQuestion();
 };
+
+// Function to get a new question
+// First gets 4 random answers and display them. 
+// From these creates an array to get one random question (flag).
+// There is question counter to stop the function
+//  when MAX_QUESTIONS has been reached.
 
 function getNewQuestion() {
     if (availableQuestions === 0 || questionCounter >= MAX_QUESTIONS) {
@@ -39,29 +43,25 @@ function getNewQuestion() {
 
     questionCounter++;
     questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`
-    
+
     function getRandomAnswer() {
-        var randomAnswer = Math.floor(Math.random() * countries.length);
-        return countries[randomAnswer].name;
+        var randomAnswer = Math.floor(Math.random() * countriesISO.length);
+        return countriesISO[randomAnswer].name;
     }
 
     function displayAnswers(maxAnswers) {
         var numAnswersDisplayed = 0;
 
-        // Loop until max number of answers are displayed
         while (numAnswersDisplayed < maxAnswers) {
-            // Add the answer to the div elements
             var answersElements = document.getElementsByClassName("answer");
 
             for (let i = 0; i < answersElements.length; i++) {
                 answersElements[i].innerHTML = getRandomAnswer();
             }
-            // Increment the number of Answers displayed
             numAnswersDisplayed++;
         }
     }
 
-    // Call the function to display the Answers 
     displayAnswers(4);
 
     function getRandomQuestion() {
@@ -78,9 +78,16 @@ function getNewQuestion() {
         flag.src = countries[index].flag;
     }
     displayQuestion();
+    // Remove one question from the array 
+    availableQuestions.splice(countriesISO, 1);
+  
     acceptingAnswers = true;
 };
 
+// Function to check the answer
+// Highligths, by classToApply, the correct or wrong 
+// answer with time delay of 1 sec before it loads the 
+// next question
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
         if (!acceptingAnswers) return;
@@ -101,28 +108,21 @@ choices.forEach(choice => {
     });
 });
 
+// Functions to toggle between pages/sections
 function chooseLevel() {
     var x = document.getElementById("start-page");
     var y = document.getElementById("choose-level");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-        y.style.display = "block";
-    }
+    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
 };
 
 function gamePage() {
     var x = document.getElementById("choose-level");
     var y = document.getElementById("game-page");
-    if (x.style.display === "none") {
-        x.style.display = "block";
-    } else {
-        x.style.display = "none";
-        y.style.display = "block";
-    }
+    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
 };
-// Love maths code
+
+// Level selection buttons to start the game
+// Love Maths walkthroug project code
 let buttons = document.getElementsByClassName("btn-level");
 
 for (let button of buttons) {
