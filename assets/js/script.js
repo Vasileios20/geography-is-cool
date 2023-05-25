@@ -12,7 +12,7 @@ startButton.addEventListener('click', () => {
     // create_user();
 });
 
-let currentQuestion = {};
+
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
@@ -20,13 +20,14 @@ let availableQuestions = [];
 
 // CONSTANTS
 const CORRECT_BONUS = 10;
-const MAX_QUESTIONS = 10;
+let MAX_QUESTIONS;
 
 function startGame() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...countriesISO];
     getNewQuestion();
+
 };
 
 // Function to get a new question
@@ -80,7 +81,7 @@ function getNewQuestion() {
     displayQuestion();
     // Remove one question from the array 
     availableQuestions.splice(countriesISO, 1);
-  
+
     acceptingAnswers = true;
 };
 
@@ -128,18 +129,16 @@ let buttons = document.getElementsByClassName("btn-level");
 for (let button of buttons) {
     button.addEventListener("click", function () {
         if (this.getAttribute("data-level") === "10-flags") {
-            gamePage();
+            gamePage(), MAX_QUESTIONS = 10, questionCounterText.innerText = `${questionCounter}/10`;
         } else if (this.getAttribute("data-level") === "25-flags") {
-            alert("You clicked 25");
-        }
-        else if (this.getAttribute("data-level") === "50-flags") {
-            alert("You clicked 50");
-        }
-        else {
-            let gamelevel = this.getAttribute("data-level");
-            alert(`You clicked ${gamelevel}`);
+            gamePage(), MAX_QUESTIONS = 25, questionCounterText.innerText = `${questionCounter}/25`;;
+        } else if (this.getAttribute("data-level") === "50-flags") {
+            gamePage(), MAX_QUESTIONS = 50, questionCounterText.innerText = `${questionCounter}/50`;
+        } else {
+            gamePage(), MAX_QUESTIONS = 100, questionCounterText.innerText = `${questionCounter}/249`;
         }
     })
 };
 
 startGame();
+
