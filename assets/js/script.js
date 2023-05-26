@@ -6,28 +6,57 @@ const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
 const startButton = document.getElementById('btn-start');
 
+let buttons = document.getElementsByClassName("btn-level");
+let acceptingAnswers = false;
+let score = 0;
+let questionCounter = 0;
+let availableQuestions = [];
+let MAX_QUESTIONS;
+
+// CONSTANTS
+const CORRECT_BONUS = 10;
+
 // Start(Play) game button
 startButton.addEventListener('click', () => {
     chooseLevel();
     // create_user();
 });
 
+// Level selection buttons to start the game
+// Love Maths walkthrough project code
+for (let button of buttons) {
+    button.addEventListener("click", function () {
+        if (this.getAttribute("data-level") === "10-flags") {
+            gamePage(), MAX_QUESTIONS = 10, questionCounterText.innerText = `${questionCounter}/10`;
+        } else if (this.getAttribute("data-level") === "25-flags") {
+            gamePage(), MAX_QUESTIONS = 25, questionCounterText.innerText = `${questionCounter}/25`;;
+        } else if (this.getAttribute("data-level") === "50-flags") {
+            gamePage(), MAX_QUESTIONS = 50, questionCounterText.innerText = `${questionCounter}/50`;
+        } else {
+            gamePage(), MAX_QUESTIONS = 100, questionCounterText.innerText = `${questionCounter}/249`;
+        }
+    })
+};
 
-let acceptingAnswers = false;
-let score = 0;
-let questionCounter = 0;
-let availableQuestions = [];
+// Functions to toggle between pages/sections
+function chooseLevel() {
+    var x = document.getElementById("start-page");
+    var y = document.getElementById("choose-level");
+    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+};
 
-// CONSTANTS
-const CORRECT_BONUS = 10;
-let MAX_QUESTIONS;
+function gamePage() {
+    var x = document.getElementById("choose-level");
+    var y = document.getElementById("game-page");
+    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+};
 
+// This function starts the game
 function startGame() {
     questionCounter = 0;
     score = 0;
     availableQuestions = [...countriesISO];
     getNewQuestion();
-
 };
 
 // Function to get a new question
@@ -35,7 +64,6 @@ function startGame() {
 // From these creates an array to get one random question (flag).
 // There is question counter to stop the function
 //  when MAX_QUESTIONS has been reached.
-
 function getNewQuestion() {
     if (availableQuestions === 0 || questionCounter >= MAX_QUESTIONS) {
         //go to the end page
@@ -99,6 +127,10 @@ choices.forEach(choice => {
 
         const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
 
+        if (classToApply === "correct") {
+            incrementScore(CORRECT_BONUS);
+        }
+
         selectedChoice.classList.add(classToApply);
 
         setTimeout(() => {
@@ -109,36 +141,8 @@ choices.forEach(choice => {
     });
 });
 
-// Functions to toggle between pages/sections
-function chooseLevel() {
-    var x = document.getElementById("start-page");
-    var y = document.getElementById("choose-level");
-    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-};
-
-function gamePage() {
-    var x = document.getElementById("choose-level");
-    var y = document.getElementById("game-page");
-    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-};
-
-// Level selection buttons to start the game
-// Love Maths walkthroug project code
-let buttons = document.getElementsByClassName("btn-level");
-
-for (let button of buttons) {
-    button.addEventListener("click", function () {
-        if (this.getAttribute("data-level") === "10-flags") {
-            gamePage(), MAX_QUESTIONS = 10, questionCounterText.innerText = `${questionCounter}/10`;
-        } else if (this.getAttribute("data-level") === "25-flags") {
-            gamePage(), MAX_QUESTIONS = 25, questionCounterText.innerText = `${questionCounter}/25`;;
-        } else if (this.getAttribute("data-level") === "50-flags") {
-            gamePage(), MAX_QUESTIONS = 50, questionCounterText.innerText = `${questionCounter}/50`;
-        } else {
-            gamePage(), MAX_QUESTIONS = 100, questionCounterText.innerText = `${questionCounter}/249`;
-        }
-    })
-};
-
+function incrementScore(num) {
+    score += num;
+    scoreText.innerText = score;
+}
 startGame();
-
