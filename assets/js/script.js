@@ -33,7 +33,7 @@ for (let button of buttons) {
         } else if (this.getAttribute("data-level") === "50-flags") {
             gamePage(), MAX_QUESTIONS = 50, questionCounterText.innerText = `${questionCounter}/50`;
         } else {
-            gamePage(), MAX_QUESTIONS = 100, questionCounterText.innerText = `${questionCounter}/249`;
+            gamePage(), MAX_QUESTIONS = 249, questionCounterText.innerText = `${questionCounter}/249`;
         }
     })
 };
