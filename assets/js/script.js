@@ -10,7 +10,7 @@ let buttons = document.getElementsByClassName("btn-level");
 let acceptingAnswers = false;
 let score = 0;
 let questionCounter = 0;
-let availableQuestions = [];
+let availableCountries = [];
 let MAX_QUESTIONS;
 
 // CONSTANTS
@@ -55,7 +55,7 @@ function gamePage() {
 function startGame() {
     questionCounter = 0;
     score = 0;
-    availableQuestions = [...countriesISO];
+    availableCountries = [...countriesISO];
     getNewQuestion();
 };
 
@@ -65,7 +65,7 @@ function startGame() {
 // There is question counter to stop the function
 //  when MAX_QUESTIONS has been reached.
 function getNewQuestion() {
-    if (availableQuestions === 0 || questionCounter >= MAX_QUESTIONS) {
+    if (availableCountries === 0 || questionCounter >= MAX_QUESTIONS) {
         //go to the end page
         return window.location.assign("/end.html");
     }
@@ -103,12 +103,16 @@ function getNewQuestion() {
         var flag = document.getElementById("question");
         var question = document.getElementById("question-hidden");
         question.innerHTML = getRandomQuestion().innerText;
-        var index = countries.findIndex(x => x.name === question.innerText);
-        flag.src = countries[index].flag;
+        var index = countriesISO.findIndex(x => x.name === question.innerText);
+        flag.src = countriesISO[index].flag;
+        availableCountries.splice(index, 1);
+        console.log(index);
     }
     displayQuestion();
     // Remove one question from the array 
-    availableQuestions.splice(countriesISO, 1);
+   
+    console.log(availableCountries);
+    console.log(countriesISO);
 
     acceptingAnswers = true;
 };
