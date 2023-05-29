@@ -174,6 +174,22 @@ header {
     margin-top: 2rem;
 }
 
+/* Form */
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    margin-bottom: 1rem;
+    border: none;
+    padding: 1rem;
+    font-size: 1.5rem;
+    box-shadow: 0 0.2rem 1rem 0 rgba(193, 130, 13, 0.7);
+}
+
 @media screen and (min-width:490px) {
     #question {
         width: 30rem;
