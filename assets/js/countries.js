@@ -1,4 +1,4 @@
-export let countries = [
+ const countries = [
   {
     "capital": "Kabul",
     "code": "af",
@@ -200,7 +200,7 @@ export let countries = [
     "code": "be",
     "continent": "Europe",
     "flag": "assets/images/flags/be.svg",
-    "flag": "assets/images/flags/be.png",
+    "flag_250px": "assets/images/flags/be.png",
     "iso": true,
     "name": "Belgium"
   },
@@ -2367,4 +2367,4 @@ export let countries = [
   }
 ];
 
-export const countriesISO = countries.filter(item => item.iso === true);
+const countriesISO = countries.filter(item => item.iso === true);
