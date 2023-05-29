@@ -190,6 +190,18 @@ input {
     box-shadow: 0 0.2rem 1rem 0 rgba(193, 130, 13, 0.7);
 }
 
+/* Highscores page */
+#highscores-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 2rem;
+}
+
+.high-score {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
 @media screen and (min-width:490px) {
     #question {
         width: 30rem;
