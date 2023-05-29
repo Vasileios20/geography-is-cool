@@ -1,6 +1,3 @@
-import { questions } from "./questions.js";
-import { countries, countriesISO } from "./countries.js"
-
 const choices = Array.from(document.getElementsByClassName("answer"));
 const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
