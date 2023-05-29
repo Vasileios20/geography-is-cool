@@ -192,7 +192,6 @@ input {
 
 /* Highscores page */
 #highscores-list {
-    list-style: none;
     padding-left: 0;
     margin: 2rem;
 }
