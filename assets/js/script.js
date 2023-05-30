@@ -2,6 +2,7 @@ const choices = Array.from(document.getElementsByClassName("answer"));
 const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
 const startButton = document.getElementById('btn-start');
+const scoresButton = document.getElementById('btn-scores');
 const INCREMENT_SCORE = 1;
 
 let buttons = document.getElementsByClassName("btn-level");
@@ -16,6 +17,13 @@ startButton.addEventListener('click', () => {
     chooseLevel();
     // create_user();
 });
+
+// Highscores Page Button
+scoresButton.addEventListener("click", () => {
+    let x = document.getElementById("start-page");
+    let y = document.getElementById("highscores-page");
+    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+})
 
 // Level selection buttons to start the game
 // Love Maths walkthrough project code

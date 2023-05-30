@@ -204,7 +204,7 @@ input {
 
 /* Highscores page */
 #highscores-page {
-    display: block;
+    display: none;
     margin: 0 auto;
 }
 
