@@ -2375,8 +2375,6 @@ const countriesAfrica = countries.filter(item => item.continent === "Africa");
 const countriesAsia = countries.filter(item => item.continent === "Asia");
 const countriesOceania = countries.filter(item => item.continent === "Oceania");
 
-console.log(countriesAfrica)
-
 function MAX10(){
   MAX_QUESTIONS = 10;
   return MAX_QUESTIONS;

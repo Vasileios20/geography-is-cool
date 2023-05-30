@@ -54,6 +54,40 @@ function startGame() {
     getNewQuestion();
 }
 
+function getRandomAnswer() {
+    let randomAnswer = Math.floor(Math.random() * countriesISO.length);
+    return countriesISO[randomAnswer].name;
+}
+
+function displayAnswers(maxAnswers) {
+    let numAnswersDisplayed = 0;
+
+    while (numAnswersDisplayed < maxAnswers) {
+        let answersElements = document.getElementsByClassName("answer");
+
+        for (let i = 0; i < answersElements.length; i++) {
+            answersElements[i].innerHTML = getRandomAnswer();
+        }
+        numAnswersDisplayed++;
+    }
+}
+
+function getRandomQuestion() {
+    let possibleQuestion = document.getElementsByClassName("answer");
+    let randomQuestion = Math.floor(Math.random() * possibleQuestion.length);
+    return possibleQuestion[randomQuestion];
+}
+
+function displayQuestion() {
+    let flag = document.getElementById("question");
+    let question = document.getElementById("question-hidden");
+    question.innerHTML = getRandomQuestion().innerText;
+    let index = countriesISO.findIndex(x => x.name === question.innerText);
+    flag.src = countriesISO[index].flag;
+    // Remove one question from the array 
+    countriesISO.splice(index, 1);
+}
+
 // Function to get a new question
 // First gets 4 random answers and display them. 
 // From these creates an array to get one random question (flag).
@@ -69,46 +103,8 @@ function getNewQuestion() {
     questionCounter++;
     questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
 
-    function getRandomAnswer() {
-        let randomAnswer = Math.floor(Math.random() * countriesISO.length);
-        return countriesISO[randomAnswer].name;
-    }
-
-    function displayAnswers(maxAnswers) {
-        let numAnswersDisplayed = 0;
-
-        while (numAnswersDisplayed < maxAnswers) {
-            let answersElements = document.getElementsByClassName("answer");
-
-            for (let i = 0; i < answersElements.length; i++) {
-                answersElements[i].innerHTML = getRandomAnswer();
-            }
-            numAnswersDisplayed++;
-        }
-    }
-
     displayAnswers(4);
-
-    function getRandomQuestion() {
-        let possibleQuestion = document.getElementsByClassName("answer");
-        let randomQuestion = Math.floor(Math.random() * possibleQuestion.length);
-        return possibleQuestion[randomQuestion];
-    }
-
-    function displayQuestion() {
-        let flag = document.getElementById("question");
-        let question = document.getElementById("question-hidden");
-        question.innerHTML = getRandomQuestion().innerText;
-        let index = countriesISO.findIndex(x => x.name === question.innerText);
-        flag.src = countriesISO[index].flag;
-        availableCountries.splice(index, 1);
-        console.log(index);
-    }
     displayQuestion();
-    // Remove one question from the array 
-   
-    console.log(availableCountries);
-    console.log(countriesISO);
 
     acceptingAnswers = true;
 }
@@ -124,7 +120,7 @@ choices.forEach(choice => {
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.innerHTML;
-
+        
         const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
 
         if (classToApply === "correct") {
@@ -136,7 +132,7 @@ choices.forEach(choice => {
         setTimeout(() => {
             selectedChoice.classList.remove(classToApply);
             getNewQuestion();
-        }, 1000);
+        }, 100);
 
     });
 });
