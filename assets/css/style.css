@@ -53,7 +53,7 @@ header {
     box-shadow: 0 0.2rem 1.4rem 0;
 }
 
-.container > * {
+.container>* {
     width: 100%;
 }
 
@@ -199,6 +199,19 @@ input {
 }
 
 /* Highscores page */
+#highscores-page {
+    display: block;
+    margin: 0 auto;
+}
+
+.div-list {
+    padding: 0 1rem;
+    background-color: rgba(199, 199, 199, 0.5);
+    margin-bottom: 1rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 0.2rem 1rem 0;
+}
+
 #highscores-list {
     padding-left: 0;
     margin: 2rem;
@@ -206,6 +219,7 @@ input {
 
 .high-score {
     font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 1rem;
 }
 
@@ -219,13 +233,13 @@ input {
         flex-basis: 20%;
     }
 
-    .container > * {
+    .container>* {
         width: 66%;
     }
 }
 
 @media screen and (min-width:700px) {
-    .container > * {
+    .container>* {
         width: 50%;
     }
 }
