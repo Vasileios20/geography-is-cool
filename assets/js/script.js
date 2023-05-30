@@ -117,22 +117,27 @@ choices.forEach(choice => {
     choice.addEventListener("click", e => {
         if (!acceptingAnswers) return;
         let question = document.getElementById("question-hidden");
+        let answer = document.getElementById("answer-result");
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.innerHTML;
-        
-        const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
 
+        const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
+        
         if (classToApply === "correct") {
             incrementScore(CORRECT_BONUS);
+            answer.innerText = ("Congratulations! Your answer is correct!");
+        } else {
+            answer.innerText = (`Sorry the correct asnwer was ${question.innerText}.`);
         }
 
         selectedChoice.classList.add(classToApply);
 
         setTimeout(() => {
             selectedChoice.classList.remove(classToApply);
+            answer.innerText = "";
             getNewQuestion();
-        }, 100);
+        }, 2000);
 
     });
 });
