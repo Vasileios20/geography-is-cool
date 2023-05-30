@@ -202,6 +202,12 @@ input {
     box-shadow: 0 0.2rem 1rem 0 rgba(193, 130, 13, 0.7);
 }
 
+/* End Page */
+#end-page {
+    display: none;
+    margin: 0 auto;
+}
+
 /* Highscores page */
 #highscores-page {
     display: none;

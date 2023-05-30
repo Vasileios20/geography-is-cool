@@ -54,6 +54,12 @@ function gamePage() {
     x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
 }
 
+function endPage() {
+    let x = document.getElementById("game-page");
+    let y = document.getElementById("end-page");
+    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+}
+
 // This function starts the game
 function startGame() {
     questionCounter = 0;
