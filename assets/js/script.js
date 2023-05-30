@@ -2,7 +2,7 @@ const choices = Array.from(document.getElementsByClassName("answer"));
 const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
 const startButton = document.getElementById('btn-start');
-const CORRECT_BONUS = 10;
+const INCREMENT_SCORE = 1;
 
 let buttons = document.getElementsByClassName("btn-level");
 let acceptingAnswers = false;
@@ -95,7 +95,7 @@ function displayQuestion() {
 //  when MAX_QUESTIONS has been reached.
 function getNewQuestion() {
     if (availableCountries === 0 || questionCounter >= MAX_QUESTIONS) {
-        localStorage.setItem("mostRecentScore", score);
+        localStorage.setItem("mostRecentScore", `${score}/${MAX_QUESTIONS}`);
         //go to the end page
         return window.location.assign("end.html");
     }
@@ -125,7 +125,7 @@ choices.forEach(choice => {
         const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
         
         if (classToApply === "correct") {
-            incrementScore(CORRECT_BONUS);
+            incrementScore(INCREMENT_SCORE);
             answer.innerText = ("Congratulations! Your answer is correct!");
         } else {
             answer.innerText = (`Sorry the correct asnwer was ${question.innerText}.`);

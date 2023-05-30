@@ -182,6 +182,10 @@ header {
     margin-top: 5rem;
 }
 
+.hud-prefix {
+    font-size: 2rem;
+}
+
 /* Form */
 
 form {
