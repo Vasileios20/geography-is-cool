@@ -2,6 +2,7 @@ const choices = Array.from(document.getElementsByClassName("answer"));
 const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
 const startButton = document.getElementById('btn-start');
+const CORRECT_BONUS = 10;
 
 let buttons = document.getElementsByClassName("btn-level");
 let acceptingAnswers = false;
@@ -9,9 +10,6 @@ let score = 0;
 let questionCounter = 0;
 let availableCountries = [];
 let MAX_QUESTIONS;
-
-// CONSTANTS
-const CORRECT_BONUS = 10;
 
 // Start(Play) game button
 startButton.addEventListener('click', () => {
@@ -24,29 +22,29 @@ startButton.addEventListener('click', () => {
 for (let button of buttons) {
     button.addEventListener("click", function () {
         if (this.getAttribute("data-level") === "10-flags") {
-            gamePage(), MAX_QUESTIONS = 10, questionCounterText.innerText = `${questionCounter}/10`;
+            gamePage(), MAX10(), questionCounterText.innerText = `${questionCounter}/10`;
         } else if (this.getAttribute("data-level") === "25-flags") {
-            gamePage(), MAX_QUESTIONS = 25, questionCounterText.innerText = `${questionCounter}/25`;;
+            gamePage(), MAX25(), questionCounterText.innerText = `${questionCounter}/25`;
         } else if (this.getAttribute("data-level") === "50-flags") {
-            gamePage(), MAX_QUESTIONS = 50, questionCounterText.innerText = `${questionCounter}/50`;
+            gamePage(), MAX50(), questionCounterText.innerText = `${questionCounter}/50`;
         } else {
-            gamePage(), MAX_QUESTIONS = 249, questionCounterText.innerText = `${questionCounter}/249`;
+            gamePage(), MAX_ALL(), questionCounterText.innerText = `${questionCounter}/249`;
         }
-    })
-};
+    });
+}
 
 // Functions to toggle between pages/sections
 function chooseLevel() {
-    var x = document.getElementById("start-page");
-    var y = document.getElementById("choose-level");
+    let x = document.getElementById("start-page");
+    let y = document.getElementById("choose-level");
     x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-};
+}
 
 function gamePage() {
-    var x = document.getElementById("choose-level");
-    var y = document.getElementById("game-page");
+    let x = document.getElementById("choose-level");
+    let y = document.getElementById("game-page");
     x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-};
+}
 
 // This function starts the game
 function startGame() {
@@ -54,7 +52,7 @@ function startGame() {
     score = 0;
     availableCountries = [...countriesISO];
     getNewQuestion();
-};
+}
 
 // Function to get a new question
 // First gets 4 random answers and display them. 
@@ -69,18 +67,18 @@ function getNewQuestion() {
     }
 
     questionCounter++;
-    questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`
+    questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
 
     function getRandomAnswer() {
-        var randomAnswer = Math.floor(Math.random() * countriesISO.length);
+        let randomAnswer = Math.floor(Math.random() * countriesISO.length);
         return countriesISO[randomAnswer].name;
     }
 
     function displayAnswers(maxAnswers) {
-        var numAnswersDisplayed = 0;
+        let numAnswersDisplayed = 0;
 
         while (numAnswersDisplayed < maxAnswers) {
-            var answersElements = document.getElementsByClassName("answer");
+            let answersElements = document.getElementsByClassName("answer");
 
             for (let i = 0; i < answersElements.length; i++) {
                 answersElements[i].innerHTML = getRandomAnswer();
@@ -92,16 +90,16 @@ function getNewQuestion() {
     displayAnswers(4);
 
     function getRandomQuestion() {
-        var possibleQuestion = document.getElementsByClassName("answer");
-        var randomQuestion = Math.floor(Math.random() * possibleQuestion.length);
+        let possibleQuestion = document.getElementsByClassName("answer");
+        let randomQuestion = Math.floor(Math.random() * possibleQuestion.length);
         return possibleQuestion[randomQuestion];
     }
 
     function displayQuestion() {
-        var flag = document.getElementById("question");
-        var question = document.getElementById("question-hidden");
+        let flag = document.getElementById("question");
+        let question = document.getElementById("question-hidden");
         question.innerHTML = getRandomQuestion().innerText;
-        var index = countriesISO.findIndex(x => x.name === question.innerText);
+        let index = countriesISO.findIndex(x => x.name === question.innerText);
         flag.src = countriesISO[index].flag;
         availableCountries.splice(index, 1);
         console.log(index);
@@ -113,7 +111,7 @@ function getNewQuestion() {
     console.log(countriesISO);
 
     acceptingAnswers = true;
-};
+}
 
 // Function to check the answer
 // Highligths, by classToApply, the correct or wrong 
@@ -122,7 +120,7 @@ function getNewQuestion() {
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
         if (!acceptingAnswers) return;
-        var question = document.getElementById("question-hidden");
+        let question = document.getElementById("question-hidden");
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.innerHTML;
@@ -143,6 +141,7 @@ choices.forEach(choice => {
     });
 });
 
+// This function increments the score
 function incrementScore(num) {
     score += num;
     scoreText.innerText = score;

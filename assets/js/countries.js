@@ -2368,3 +2368,31 @@
 ];
 
 const countriesISO = countries.filter(item => item.iso === true);
+const countriesEurope = countries.filter(item => item.continent === "Europe");
+const countriesNorthAmerica = countries.filter(item => item.continent === "North America");
+const countriesSouthAmerica = countries.filter(item => item.continent === "South America");
+const countriesAfrica = countries.filter(item => item.continent === "Africa");
+const countriesAsia = countries.filter(item => item.continent === "Asia");
+const countriesOceania = countries.filter(item => item.continent === "Oceania");
+
+console.log(countriesAfrica)
+
+function MAX10(){
+  MAX_QUESTIONS = 10;
+  return MAX_QUESTIONS;
+}
+
+function MAX25(){
+  MAX_QUESTIONS = 25;
+  return MAX_QUESTIONS;
+}
+
+function MAX50(){
+  MAX_QUESTIONS = 50;
+  return MAX_QUESTIONS;
+}
+
+function MAX_ALL(){
+  MAX_QUESTIONS = 249;
+  return MAX_QUESTIONS;
+}

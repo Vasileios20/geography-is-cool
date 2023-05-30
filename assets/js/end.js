@@ -8,7 +8,7 @@ const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const MAX_HIGHSCORES = 5;
 
 username.addEventListener("keyup", () => {
-    saveButton.disabled = !username.value
+    saveButton.disabled = !username.value;
 });
 
 saveButton.addEventListener("click", (e) => {
@@ -22,7 +22,7 @@ saveButton.addEventListener("click", (e) => {
     
     highScores.sort((a,b) => b.score -a.score);
 
-    highScores.splice(5)
+    highScores.splice(5);
 
     localStorage.setItem("highScores", JSON.stringify(highScores));
 
