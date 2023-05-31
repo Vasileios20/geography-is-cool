@@ -144,7 +144,6 @@ header {
     border-radius: 1rem;
 }
 
-
 #question {
     margin: 2rem auto;
     width: 20rem;
@@ -173,6 +172,7 @@ header {
     font-size: 1.6rem;
     margin: 0.5rem 1rem;
     height: 3rem;
+    display: none;
 }
 
 /* HUD */
@@ -204,7 +204,7 @@ input {
 
 /* End Page */
 #end-page {
-    display: none;
+    display: block;
     margin: 0 auto;
 }
 
