@@ -144,13 +144,6 @@ header {
     border-radius: 1rem;
 }
 
-.choice-container:hover {
-    cursor: pointer;
-    box-shadow: 0 0.2rem 1.6rem 0;
-    transform: translateY(-0.2rem);
-    transition: transform 150ms;
-    background-color: rgba(221, 215, 141, 0.7);
-}
 
 #question {
     margin: 2rem auto;
@@ -262,5 +255,12 @@ input {
 @media screen and (min-width:700px) {
     .container>* {
         width: 50%;
+    }
+    .choice-container:hover {
+        cursor: pointer;
+        box-shadow: 0 0.2rem 1.6rem 0;
+        transform: translateY(-0.2rem);
+        transition: transform 150ms;
+        background-color: rgba(221, 215, 141, 0.7);
     }
 }
