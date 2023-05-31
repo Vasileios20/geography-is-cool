@@ -114,6 +114,13 @@ header {
     margin: 0 auto;
 }
 
+#btn-home {
+    margin-top: 5rem;
+    background-color: #7B3D3D;
+    color: #eee;
+    font-weight: 600;
+}
+
 /* Game Page */
 
 #game-page {
@@ -237,6 +244,10 @@ input {
     #question {
         width: 30rem;
         margin: 2rem auto;
+    }
+
+    #btn-home {
+        width: 30%;
     }
 
     .choice-container {
