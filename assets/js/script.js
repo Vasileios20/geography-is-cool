@@ -137,27 +137,37 @@ choices.forEach(choice => {
     choice.addEventListener("click", e => {
         if (!acceptingAnswers) return;
         let question = document.getElementById("question-hidden");
-        let answer = document.getElementById("answer-result");
+        let modalContent = document.getElementById("modal-content");
+        let modal = document.getElementById("myModal");
         acceptingAnswers = false;
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.innerHTML;
 
         const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
         
+        function correctAnswer() {
+            modal.style.display = "block";
+            modalContent.innerHTML = ("Congratulations! Your answer is correct!");
+        }
+
+        function incorrectAnswer() {
+            modal.style.display = "block";
+            modalContent.innerHTML = (`Sorry the correct asnwer was ${question.innerText}.`);
+        }
         if (classToApply === "correct") {
             incrementScore(INCREMENT_SCORE);
-            answer.innerText = ("Congratulations! Your answer is correct!");
+            correctAnswer();
         } else {
-            answer.innerText = (`Sorry the correct asnwer was ${question.innerText}.`);
+            incorrectAnswer();
         }
 
         selectedChoice.classList.add(classToApply);
 
         setTimeout(() => {
             selectedChoice.classList.remove(classToApply);
-            answer.innerText = "";
+            modal.style.display = "none";
             getNewQuestion();
-        }, 2000);
+        }, 2500);
 
     });
 });
