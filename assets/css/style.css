@@ -166,7 +166,7 @@ header {
 .choice-prefix {
     padding: 0.5rem 1rem;
     background-color: #DCBF85;
-    border-radius: 1rem;
+    border-radius: 1rem 0 0 1rem;
 }
 
 .answer {
@@ -176,10 +176,12 @@ header {
 
 .correct {
     background-color: green;
+    border-radius: 0 1rem 1rem 0;
 }
 
 .incorrect {
     background-color: red;
+    border-radius: 0 1rem 1rem 0;
 }
 
 .answer-result {
