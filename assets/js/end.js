@@ -1,3 +1,4 @@
+// Code borrowed from https://www.youtube.com/watch?v=Opje9VBrNfg&t=1791s 
 const saveButton = document.getElementById("btn-save");
 const username = document.getElementById("username");
 const finalScore = document.getElementById("final-score");

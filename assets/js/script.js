@@ -31,8 +31,9 @@ goBackButton.addEventListener("click", () => {
     let y = document.getElementById("start-page");
     x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
 })
+
+// Code borrowed and edited from Love Maths walkthrough project
 // Level selection buttons to start the game
-// Love Maths walkthrough project code
 for (let button of buttons) {
     button.addEventListener("click", function () {
         if (this.getAttribute("data-level") === "10-flags") {
@@ -78,7 +79,7 @@ function getRandomAnswer() {
     let randomAnswer = Math.floor(Math.random() * countriesISO.length);
     return countriesISO[randomAnswer].name;
 }
-
+// This function gets 4 random answers and display them. 
 function displayAnswers(maxAnswers) {
     let numAnswersDisplayed = 0;
 
@@ -91,13 +92,14 @@ function displayAnswers(maxAnswers) {
         numAnswersDisplayed++;
     }
 }
-
+// This function get the array of answers and generates one random question.
 function getRandomQuestion() {
     let possibleQuestion = document.getElementsByClassName("answer");
     let randomQuestion = Math.floor(Math.random() * possibleQuestion.length);
     return possibleQuestion[randomQuestion];
 }
-
+// This function gets the question's name and finds it's index in the countriesISO array
+//  and displays the flag
 function displayQuestion() {
     let flag = document.getElementById("question");
     let question = document.getElementById("question-hidden");
@@ -108,9 +110,8 @@ function displayQuestion() {
     countriesISO.splice(index, 1);
 }
 
+// Code borrowed and edited from https://www.youtube.com/watch?v=Opje9VBrNfg&t=1791s 
 // Function to get a new question
-// First gets 4 random answers and display them. 
-// From these creates an array to get one random question (flag).
 // There is question counter to stop the function
 //  when MAX_QUESTIONS has been reached.
 function getNewQuestion() {
@@ -129,9 +130,11 @@ function getNewQuestion() {
     acceptingAnswers = true;
 }
 
+// Code borrowed and edited from https://www.youtube.com/watch?v=Opje9VBrNfg&t=1791s 
 // Function to check the answer
 // Highligths, by classToApply, the correct or wrong 
-// answer with time delay of 1 sec before it loads the 
+// answer and displays a modal with the result.
+// There is a time delay function before it loads the 
 // next question
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
