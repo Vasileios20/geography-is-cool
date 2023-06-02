@@ -21,7 +21,7 @@ saveButton.addEventListener("click", (e) => {
     };
     highScores.push(score);
     
-    highScores.sort((a,b) => b.score -a.score);
+    highScores.sort(function(a, b){return a - b});
 
     highScores.splice(5);
 

@@ -116,7 +116,8 @@ function displayQuestion() {
 //  when MAX_QUESTIONS has been reached.
 function getNewQuestion() {
     if (availableCountries === 0 || questionCounter >= MAX_QUESTIONS) {
-        localStorage.setItem("mostRecentScore", `${score}/${MAX_QUESTIONS}`);
+        let quizResults = ((score / MAX_QUESTIONS) * 100);
+        localStorage.setItem("mostRecentScore", `${quizResults}% / ${MAX_QUESTIONS}`);
         //go to the end page
         return window.location.assign("end.html");
     }
@@ -147,7 +148,7 @@ choices.forEach(choice => {
         const selectedAnswer = selectedChoice.innerHTML;
 
         const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
-        
+
         function correctAnswer() {
             modal.style.display = "block";
             modalContent.innerHTML = ("Congratulations! Your answer is <b>correct!</b>");
@@ -155,7 +156,7 @@ choices.forEach(choice => {
 
         function incorrectAnswer() {
             modal.style.display = "block";
-            modalContent.innerHTML = ("Sorry the correct asnwer was <b>"+ question.innerText + "</b>.");
+            modalContent.innerHTML = ("Sorry the correct asnwer was <b>" + question.innerText + "</b>.");
         }
         if (classToApply === "correct") {
             incrementScore(INCREMENT_SCORE);
