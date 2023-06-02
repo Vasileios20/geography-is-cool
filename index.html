@@ -10,12 +10,11 @@
 </head>
 
 <body>
-    <header>
-        <h1>Geography Is Cool !!</h1>
-    </header>
+
     <!-- Start Page -->
     <section id="start-page">
-        <div class="container">
+        <div class="container container-start">
+            <h1>Geography Is Cool !!</h1>
             <div id="home" class="flex-center flex-column">
                 <div class="welcome">
                     <h2>Welcome to the Geography Is Cool Quiz Game!</h2>
@@ -26,14 +25,17 @@
                         started!
                     </p>
                 </div>
-                <a class="btn" href="#choose-level" id="btn-start">Play</a>
-                <a class="btn" href="#highscores-page" id="btn-scores">Highscores</a>
+                <div class="start-btn">
+                    <a class="btn" href="#choose-level" id="btn-start">Play</a>
+                    <a class="btn" href="#highscores-page" id="btn-scores">Highscores</a>
+                </div>
             </div>
         </div>
     </section>
     <!-- Choose Level -->
     <section id="choose-level">
         <div class="container flex-column choose-level">
+            <h1>Geography Is Cool !!</h1>
             <h2>Choose level</h2>
             <a class="btn btn-level" href="#game-page" data-level="10-flags">10 Flags</a>
             <a class="btn btn-level" href="#game-page" data-level="25-flags">25 Flags</a>
@@ -44,7 +46,7 @@
     </section>
     <!-- Game Page -->
     <section id="game-page">
-        <div class="container">
+        <div class="container container-game">
             <div id="game" class="justify-center flex-column">
                 <h2>Find the country of</h2>
                 <p class="hidden" id="question-hidden"></p>
