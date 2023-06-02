@@ -150,12 +150,12 @@ choices.forEach(choice => {
         
         function correctAnswer() {
             modal.style.display = "block";
-            modalContent.innerHTML = ("Congratulations! Your answer is correct!");
+            modalContent.innerHTML = ("Congratulations! Your answer is <b>correct!</b>");
         }
 
         function incorrectAnswer() {
             modal.style.display = "block";
-            modalContent.innerHTML = (`Sorry the correct asnwer was ${question.innerText}.`);
+            modalContent.innerHTML = ("Sorry the correct asnwer was <b>"+ question.innerText + "</b>.");
         }
         if (classToApply === "correct") {
             incrementScore(INCREMENT_SCORE);
