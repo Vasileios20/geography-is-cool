@@ -37,13 +37,13 @@ goBackButton.addEventListener("click", () => {
 for (let button of buttons) {
     button.addEventListener("click", function () {
         if (this.getAttribute("data-level") === "10-flags") {
-            gamePage(), MAX10(), questionCounterText.innerText = `${questionCounter}/10`;
+            gamePage(), MAX10(), questionCounter10();
         } else if (this.getAttribute("data-level") === "25-flags") {
-            gamePage(), MAX25(), questionCounterText.innerText = `${questionCounter}/25`;
+            gamePage(), MAX25(), questionCounter25();
         } else if (this.getAttribute("data-level") === "50-flags") {
-            gamePage(), MAX50(), questionCounterText.innerText = `${questionCounter}/50`;
+            gamePage(), MAX50(),questionCounter50();
         } else {
-            gamePage(), MAX_ALL(), questionCounterText.innerText = `${questionCounter}/249`;
+            gamePage(), MAX_ALL(), questionCounterAll();
         }
     });
 }
@@ -65,6 +65,19 @@ function endPage() {
     let x = document.getElementById("game-page");
     let y = document.getElementById("end-page");
     x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+}
+// Functions to set the question counter inner text to be displayed when game starts
+function questionCounter10() {
+    questionCounterText.innerText = `${questionCounter}/10`;
+}
+function questionCounter25() {
+    questionCounterText.innerText = `${questionCounter}/25`;
+}
+function questionCounter50() {
+    questionCounterText.innerText = `${questionCounter}/50`;
+}
+function questionCounterAll() {
+    questionCounterText.innerText = `${questionCounter}/249`;
 }
 
 // This function starts the game
