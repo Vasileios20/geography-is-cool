@@ -2,7 +2,8 @@ const choices = Array.from(document.getElementsByClassName("answer"));
 const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
 const startButton = document.getElementById('btn-start');
-const goBackButton = document.getElementById('btn-home');
+const goBackButton = document.getElementById(`btn-back`)
+const goHomebutton = document.getElementById('btn-home');
 const scoresButton = document.getElementById('btn-scores');
 const INCREMENT_SCORE = 1;
 
@@ -19,26 +20,34 @@ let time = document.getElementById("timer");
 let secondsLeft = 10;
 let downloadTimer;
 
-function MAX_Q(number){
+function MAX_Q(number) {
     MAX_QUESTIONS = number;
-  }
+}
+
+// Function to toggle between pages/sections
+function btnFunction(id1, id2) {
+    let x = document.getElementById(id1);
+    let y = document.getElementById(id2);
+    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+}
 
 // Start(Play) game button
 startButton.addEventListener('click', () => {
-    chooseLevel();
+    btnFunction("start-page", "choose-level")
 });
 
-// Highscores Page Button
+// Highscores' Buttons
 scoresButton.addEventListener("click", () => {
-    let x = document.getElementById("start-page");
-    let y = document.getElementById("highscores-page");
-    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+    btnFunction("start-page", "highscores-page")
 });
+
+goHomebutton.addEventListener("click", () => {
+    btnFunction("highscores-page", "start-page")
+});
+
 // Go Back Button at choose level page
 goBackButton.addEventListener("click", () => {
-    let x = document.getElementById("choose-level");
-    let y = document.getElementById("start-page");
-    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+    btnFunction("choose-level", "start-page")
 });
 
 // Code borrowed and edited from Love Maths walkthrough project
@@ -46,35 +55,17 @@ goBackButton.addEventListener("click", () => {
 for (let button of buttons) {
     button.addEventListener("click", function () {
         if (this.getAttribute("data-level") === "10-flags") {
-            gamePage(), MAX_Q(10), startGame(), questionCounterStart(10);
+            btnFunction("choose-level", "game-page"), MAX_Q(10), startGame(), questionCounterStart(10);
         } else if (this.getAttribute("data-level") === "25-flags") {
-            gamePage(), MAX_Q(25), startGame(), questionCounterStart(25);
+            btnFunction("choose-level", "game-page"), MAX_Q(25), startGame(), questionCounterStart(25);
         } else if (this.getAttribute("data-level") === "50-flags") {
-            gamePage(), MAX_Q(50), startGame(), questionCounterStart(50);
+            btnFunction("choose-level", "game-page"), MAX_Q(50), startGame(), questionCounterStart(50);
         } else {
-            gamePage(), MAX_Q(249), startGame(), questionCounterStart(249);
+            btnFunction("choose-level", "game-page"), MAX_Q(249), startGame(), questionCounterStart(249);
         }
     });
 }
 
-// Functions to toggle between pages/sections
-function chooseLevel() {
-    let x = document.getElementById("start-page");
-    let y = document.getElementById("choose-level");
-    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-}
-
-function gamePage() {
-    let x = document.getElementById("choose-level");
-    let y = document.getElementById("game-page");
-    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-}
-
-function endPage() {
-    let x = document.getElementById("game-page");
-    let y = document.getElementById("end-page");
-    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-}
 // Function to set the question counter inner text to be displayed when game starts
 function questionCounterStart(number) {
     questionCounterText.innerText = `${questionCounter}/${number}`;
@@ -199,7 +190,6 @@ choices.forEach(choice => {
         }
 
         selectedChoice.classList.add(classToApply);
-        clearInterval(timer);
         clearInterval(downloadTimer);
 
         setTimeout(() => {
