@@ -19,6 +19,10 @@ let time = document.getElementById("timer");
 let secondsLeft = 10;
 let downloadTimer;
 
+function MAX_Q(number){
+    MAX_QUESTIONS = number;
+  }
+
 // Start(Play) game button
 startButton.addEventListener('click', () => {
     chooseLevel();
@@ -42,13 +46,13 @@ goBackButton.addEventListener("click", () => {
 for (let button of buttons) {
     button.addEventListener("click", function () {
         if (this.getAttribute("data-level") === "10-flags") {
-            gamePage(), MAX10(), startGame(), questionCounterStart(10);
+            gamePage(), MAX_Q(10), startGame(), questionCounterStart(10);
         } else if (this.getAttribute("data-level") === "25-flags") {
-            gamePage(), MAX25(), startGame(), questionCounterStart(25);
+            gamePage(), MAX_Q(25), startGame(), questionCounterStart(25);
         } else if (this.getAttribute("data-level") === "50-flags") {
-            gamePage(), MAX50(), startGame(), questionCounterStart(50);
+            gamePage(), MAX_Q(50), startGame(), questionCounterStart(50);
         } else {
-            gamePage(), MAX_ALL(), startGame(), questionCounterStart(249);
+            gamePage(), MAX_Q(249), startGame(), questionCounterStart(249);
         }
     });
 }
@@ -143,8 +147,9 @@ function displayQuestion() {
 //  when MAX_QUESTIONS has been reached.
 function getNewQuestion() {
     if (availableCountries === 0 || questionCounter >= MAX_QUESTIONS) {
-        let quizResults = ((score / MAX_QUESTIONS) * 100);
-        localStorage.setItem("mostRecentScore", `${quizResults}% / ${MAX_QUESTIONS}`);
+        let quizResults = (Math.floor((score / MAX_QUESTIONS) * 100));
+        localStorage.setItem("mostRecentScore", `${quizResults}`);
+        localStorage.setItem("questionsCorrect", `${score}/${MAX_QUESTIONS}`);
         clearInterval(downloadTimer);
         //go to the end page
         return window.location.assign("end.html");
@@ -202,7 +207,7 @@ choices.forEach(choice => {
             modal.style.display = "none";
             timerShow();
             getNewQuestion();
-        }, 2500);
+        }, 100);
 
     });
 });

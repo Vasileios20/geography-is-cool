@@ -2374,23 +2374,3 @@ const countriesSouthAmerica = countries.filter(item => item.continent === "South
 const countriesAfrica = countries.filter(item => item.continent === "Africa");
 const countriesAsia = countries.filter(item => item.continent === "Asia");
 const countriesOceania = countries.filter(item => item.continent === "Oceania");
-
-function MAX10(){
-  MAX_QUESTIONS = 10;
-  return MAX_QUESTIONS;
-}
-
-function MAX25(){
-  MAX_QUESTIONS = 25;
-  return MAX_QUESTIONS;
-}
-
-function MAX50(){
-  MAX_QUESTIONS = 50;
-  return MAX_QUESTIONS;
-}
-
-function MAX_ALL(){
-  MAX_QUESTIONS = 249;
-  return MAX_QUESTIONS;
-}
