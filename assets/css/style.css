@@ -312,6 +312,36 @@ input {
     font-size: 3rem;
 }
 
+@media screen and (max-width:380px) {
+    h1 {
+        font-size: 2.7rem;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .container {
+        height: 90vh;
+    }
+
+    #game h2 {
+        margin: 0;
+    }
+
+    .choice-container {
+        font-size: 1.6rem;
+    }
+
+    .modal-content {
+        font-size: 1.6rem;
+    }
+
+    .div-list {
+        margin: 1rem;
+    }
+}
+
 
 @media screen and (min-width:490px) {
     #question {
