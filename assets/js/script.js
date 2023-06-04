@@ -207,7 +207,7 @@ choices.forEach(choice => {
             modal.style.display = "none";
             timerShow();
             getNewQuestion();
-        }, 100);
+        }, 2500);
 
     });
 });
