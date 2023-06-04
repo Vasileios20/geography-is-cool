@@ -12,11 +12,16 @@ let score = 0;
 let questionCounter = 0;
 let availableCountries = [];
 let MAX_QUESTIONS;
+let modalContent = document.getElementById("modal-content");
+let modal = document.getElementById("myModal");
+let question = document.getElementById("question-hidden");
+let time = document.getElementById("timer");
+let secondsLeft = 10;
+let downloadTimer;
 
 // Start(Play) game button
 startButton.addEventListener('click', () => {
     chooseLevel();
-    // create_user();
 });
 
 // Highscores Page Button
@@ -24,26 +29,26 @@ scoresButton.addEventListener("click", () => {
     let x = document.getElementById("start-page");
     let y = document.getElementById("highscores-page");
     x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-})
+});
 // Go Back Button at choose level page
 goBackButton.addEventListener("click", () => {
     let x = document.getElementById("choose-level");
     let y = document.getElementById("start-page");
     x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
-})
+});
 
 // Code borrowed and edited from Love Maths walkthrough project
 // Level selection buttons to start the game
 for (let button of buttons) {
     button.addEventListener("click", function () {
         if (this.getAttribute("data-level") === "10-flags") {
-            gamePage(), MAX10(), questionCounter10();
+            gamePage(), MAX10(), startGame(), questionCounterStart(10);
         } else if (this.getAttribute("data-level") === "25-flags") {
-            gamePage(), MAX25(), questionCounter25();
+            gamePage(), MAX25(), startGame(), questionCounterStart(25);
         } else if (this.getAttribute("data-level") === "50-flags") {
-            gamePage(), MAX50(),questionCounter50();
+            gamePage(), MAX50(), startGame(), questionCounterStart(50);
         } else {
-            gamePage(), MAX_ALL(), questionCounterAll();
+            gamePage(), MAX_ALL(), startGame(), questionCounterStart(249);
         }
     });
 }
@@ -66,18 +71,27 @@ function endPage() {
     let y = document.getElementById("end-page");
     x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
 }
-// Functions to set the question counter inner text to be displayed when game starts
-function questionCounter10() {
-    questionCounterText.innerText = `${questionCounter}/10`;
+// Function to set the question counter inner text to be displayed when game starts
+function questionCounterStart(number) {
+    questionCounterText.innerText = `${questionCounter}/${number}`;
 }
-function questionCounter25() {
-    questionCounterText.innerText = `${questionCounter}/25`;
-}
-function questionCounter50() {
-    questionCounterText.innerText = `${questionCounter}/50`;
-}
-function questionCounterAll() {
-    questionCounterText.innerText = `${questionCounter}/249`;
+
+// This function sets a timer to answer the question
+function timerShow() {
+    clearInterval(downloadTimer);
+    secondsLeft = 10;
+
+    downloadTimer = setInterval(() => {
+        if (secondsLeft <= 0)
+            clearInterval(downloadTimer),
+                incorrectAnswer(),
+                setTimeout(() => {
+                    getNewQuestion();
+
+                }, 2000);
+        time.innerText = --secondsLeft;
+
+    }, 1000);
 }
 
 // This function starts the game
@@ -131,17 +145,30 @@ function getNewQuestion() {
     if (availableCountries === 0 || questionCounter >= MAX_QUESTIONS) {
         let quizResults = ((score / MAX_QUESTIONS) * 100);
         localStorage.setItem("mostRecentScore", `${quizResults}% / ${MAX_QUESTIONS}`);
+        clearInterval(downloadTimer);
         //go to the end page
         return window.location.assign("end.html");
     }
-
+    time.style.display = "block";
+    modal.style.display = "none";
     questionCounter++;
     questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
-
+    time.innerText = 10;
     displayAnswers(4);
     displayQuestion();
-
+    timerShow();
     acceptingAnswers = true;
+}
+function correctAnswer() {
+    time.style.display = "none";
+    modal.style.display = "block";
+    modalContent.innerHTML = ("Congratulations! Your answer is <b>correct!</b>");
+}
+
+function incorrectAnswer() {
+    time.style.display = "none";
+    modal.style.display = "block";
+    modalContent.innerHTML = (`Sorry, the correct asnwer was <b> ${question.innerText} </b>.`);
 }
 
 // Code borrowed and edited from https://www.youtube.com/watch?v=Opje9VBrNfg&t=1791s 
@@ -153,24 +180,12 @@ function getNewQuestion() {
 choices.forEach(choice => {
     choice.addEventListener("click", e => {
         if (!acceptingAnswers) return;
-        let question = document.getElementById("question-hidden");
-        let modalContent = document.getElementById("modal-content");
-        let modal = document.getElementById("myModal");
         acceptingAnswers = false;
+
         const selectedChoice = e.target;
         const selectedAnswer = selectedChoice.innerHTML;
-
         const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
 
-        function correctAnswer() {
-            modal.style.display = "block";
-            modalContent.innerHTML = ("Congratulations! Your answer is <b>correct!</b>");
-        }
-
-        function incorrectAnswer() {
-            modal.style.display = "block";
-            modalContent.innerHTML = ("Sorry the correct asnwer was <b>" + question.innerText + "</b>.");
-        }
         if (classToApply === "correct") {
             incrementScore(INCREMENT_SCORE);
             correctAnswer();
@@ -179,10 +194,13 @@ choices.forEach(choice => {
         }
 
         selectedChoice.classList.add(classToApply);
+        clearInterval(timer);
+        clearInterval(downloadTimer);
 
         setTimeout(() => {
             selectedChoice.classList.remove(classToApply);
             modal.style.display = "none";
+            timerShow();
             getNewQuestion();
         }, 2500);
 
@@ -194,4 +212,3 @@ function incrementScore(num) {
     score += num;
     scoreText.innerText = score;
 }
-startGame();
