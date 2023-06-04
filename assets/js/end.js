@@ -3,7 +3,8 @@ const saveButton = document.getElementById("btn-save");
 const username = document.getElementById("username");
 const finalScore = document.getElementById("final-score");
 const mostRecentScore = localStorage.getItem("mostRecentScore");
-finalScore.innerText = mostRecentScore;
+const questionsCorrect = localStorage.getItem("questionsCorrect");
+finalScore.innerText = `${mostRecentScore} | ${questionsCorrect}`;
 
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 const MAX_HIGHSCORES = 5;
@@ -16,12 +17,13 @@ saveButton.addEventListener("click", (e) => {
     e.preventDefault();
 
     const score = {
-        score : mostRecentScore,
-        username : username.value
+        score: mostRecentScore,
+        username: username.value,
+        correct: questionsCorrect
     };
     highScores.push(score);
-    
-    highScores.sort(function(a, b){return a - b});
+
+    highScores.sort(function (a, b) { return b.score - a.score });
 
     highScores.splice(5);
 
