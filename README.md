@@ -27,7 +27,11 @@ a flag quiz game and it aims to entertain and educate people with the flags of a
 # Design
 
    ## Colour Scheme
+   ![Colour palette](documentation/gic.png)
    ## Typography
+   The Comfortaa font was chosen because of its rounded edges that make it easy to read.
+   
+   The font imported from [Google fonts](https://fonts.google.com/specimen/Comfortaa?query=com)
    ## Wireframes
    [Start Page](documentation/wireframes/start-page.png)
 
