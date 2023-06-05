@@ -2,7 +2,7 @@ const choices = Array.from(document.getElementsByClassName("answer"));
 const questionCounterText = document.getElementById("question-counter");
 const scoreText = document.getElementById("score");
 const startButton = document.getElementById('btn-start');
-const goBackButton = document.getElementById(`btn-back`)
+const goBackButton = document.getElementById(`btn-back`);
 const goHomebutton = document.getElementById('btn-home');
 const scoresButton = document.getElementById('btn-scores');
 const INCREMENT_SCORE = 1;
@@ -33,21 +33,21 @@ function btnFunction(id1, id2) {
 
 // Start(Play) game button
 startButton.addEventListener('click', () => {
-    btnFunction("start-page", "choose-level")
+    btnFunction("start-page", "choose-level");
 });
 
 // Highscores' Buttons
 scoresButton.addEventListener("click", () => {
-    btnFunction("start-page", "highscores-page")
+    btnFunction("start-page", "highscores-page");
 });
 
 goHomebutton.addEventListener("click", () => {
-    btnFunction("highscores-page", "start-page")
+    btnFunction("highscores-page", "start-page");
 });
 
 // Go Back Button at choose level page
 goBackButton.addEventListener("click", () => {
-    btnFunction("choose-level", "start-page")
+    btnFunction("choose-level", "start-page");
 });
 
 // Code borrowed and edited from Love Maths walkthrough project
