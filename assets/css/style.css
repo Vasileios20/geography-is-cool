@@ -259,7 +259,7 @@ input {
 
 .div-list {
     padding: 0 1rem;
-    background-color: rgba(199, 199, 199, 0.5);
+    background-color: rgba(241, 241, 241, 0.5);
     margin-bottom: 1rem;
     border-radius: 0.5rem;
     box-shadow: 0 0.2rem 1rem 0;
@@ -368,6 +368,6 @@ input {
         box-shadow: 0 0.2rem 1.6rem 0;
         transform: translateY(-0.2rem);
         transition: transform 150ms;
-        background-color: rgba(221, 215, 141, 0.7);
+        background-color: rgba(221, 215, 141, 0.9);
     }
 }
