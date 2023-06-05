@@ -129,7 +129,7 @@ h3 {
     background-color: rgba(241, 241, 241, 0.9);
     padding: 1rem;
     border-radius: 0.5rem;
-    margin: 0 1rem;
+    margin: 1.5rem 1rem;
 }
 
 .welcome h2 {
@@ -319,6 +319,10 @@ input {
 
     h2 {
         font-size: 1.8rem;
+    }
+    
+    .welcome {
+        margin: 0 1rem;
     }
 
     .container {
