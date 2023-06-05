@@ -222,16 +222,30 @@ header {
 .timer {
     font-size: 1.5rem;
     text-align: center;
+    width: 15rem;
+    margin: 0 auto 1rem;
+    border: none;
+    background-color: rgba(241, 241, 241, 0.7);
+    border-radius: 0.5rem;
+    padding: 0.2rem;
 }
 
 #timer {
     font-size: 2rem;
+    font-weight: 600;
 }
 
 /* HUD */
 #hud {
     display: flex;
     justify-content: space-around;
+    
+}
+
+.hud-item {
+    background-color: rgba(220, 191, 133, 0.6);
+    border-radius: 0.5rem;
+    padding: 0.2rem;
 }
 
 .hud-prefix {
