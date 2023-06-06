@@ -55,13 +55,25 @@ goBackButton.addEventListener("click", () => {
 for (let button of buttons) {
     button.addEventListener("click", function () {
         if (this.getAttribute("data-level") === "10-flags") {
-            btnFunction("choose-level", "game-page"), MAX_Q(10), startGame(), questionCounterStart(10);
+            btnFunction("choose-level", "game-page");
+            MAX_Q(10);
+            startGame();
+            questionCounterStart(10);
         } else if (this.getAttribute("data-level") === "25-flags") {
-            btnFunction("choose-level", "game-page"), MAX_Q(25), startGame(), questionCounterStart(25);
+            btnFunction("choose-level", "game-page");
+            MAX_Q(25);
+            startGame();
+            questionCounterStart(25);
         } else if (this.getAttribute("data-level") === "50-flags") {
-            btnFunction("choose-level", "game-page"), MAX_Q(50), startGame(), questionCounterStart(50);
+            btnFunction("choose-level", "game-page");
+            MAX_Q(50);
+            startGame();
+            questionCounterStart(50);
         } else {
-            btnFunction("choose-level", "game-page"), MAX_Q(249), startGame(), questionCounterStart(249);
+            btnFunction("choose-level", "game-page");
+            MAX_Q(249);
+            startGame();
+            questionCounterStart(249);
         }
     });
 }
@@ -77,13 +89,14 @@ function timerShow() {
     secondsLeft = 10;
 
     downloadTimer = setInterval(() => {
-        if (secondsLeft <= 0)
-            clearInterval(downloadTimer),
-                incorrectAnswer(),
+        if (secondsLeft <= 0) {
+            clearInterval(downloadTimer);
+                incorrectAnswer();
                 setTimeout(() => {
                     getNewQuestion();
 
                 }, 2000);
+        }
         time.innerText = --secondsLeft;
 
     }, 1000);

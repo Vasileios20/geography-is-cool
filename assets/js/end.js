@@ -7,7 +7,6 @@ const questionsCorrect = localStorage.getItem("questionsCorrect");
 finalScore.innerText = `${mostRecentScore} | ${questionsCorrect}`;
 
 const highScores = JSON.parse(localStorage.getItem("highScores")) || [];
-const MAX_HIGHSCORES = 5;
 
 username.addEventListener("keyup", () => {
     saveButton.disabled = !username.value;
@@ -23,7 +22,7 @@ saveButton.addEventListener("click", (e) => {
     };
     highScores.push(score);
 
-    highScores.sort(function (a, b) { return b.score - a.score });
+    highScores.sort(function (a, b) { return b.score - a.score;});
 
     highScores.splice(5);
 
