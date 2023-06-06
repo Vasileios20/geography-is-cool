@@ -195,12 +195,15 @@ choices.forEach(choice => {
         const selectedAnswer = selectedChoice.innerHTML;
         const classToApply = selectedAnswer === question.innerText ? "correct" : "incorrect";
 
-        if (classToApply === "correct") {
-            incrementScore(INCREMENT_SCORE);
-            correctAnswer();
-        } else {
-            incorrectAnswer();
-        }
+        setTimeout(() => {
+            if (classToApply === "correct") {
+                incrementScore(INCREMENT_SCORE);
+                correctAnswer();
+            } else {
+                incorrectAnswer();
+            }
+        }, 500);
+
 
         selectedChoice.classList.add(classToApply);
         clearInterval(downloadTimer);
