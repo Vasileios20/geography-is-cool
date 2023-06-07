@@ -134,18 +134,21 @@ header {
     justify-content: space-around;
     flex-direction: column;
     padding-top: 1rem;
-
 }
 
-.welcome {
+.container-div {
     background-color: rgba(241, 241, 241, 0.9);
     padding: 1rem;
     border-radius: 0.5rem;
     margin: 1.5rem 1rem;
 }
 
-.welcome h2 {
+.container-div h2 {
     font-size: 2rem;
+}
+
+.container-div p {
+    line-height: 2rem;
 }
 
 .start-btn {
@@ -158,6 +161,11 @@ header {
 #choose-level {
     display: none;
     margin: auto auto 0;
+    font-size: 1.6rem;
+}
+
+.container-div-level {
+    width: 90%;
 }
 
 /* Game Page */
@@ -323,7 +331,6 @@ input {
     overflow: auto;
     background-color: rgb(0, 0, 0);
     background-color: rgba(0, 0, 0, 0.5);
-
 }
 
 .modal-content {
@@ -354,9 +361,8 @@ footer a {
     padding: 0 1rem;
 }
 
-#background-image {
+#background-image-link {
     font-size: 0.8rem;
-
 }
 
 @media screen and (max-width:420px) {
@@ -366,10 +372,6 @@ footer a {
 
     h2 {
         font-size: 1.8rem;
-    }
-
-    .welcome {
-        margin: 0 1rem;
     }
 
     .container {
@@ -408,7 +410,7 @@ footer a {
         width: 66%;
     }
 
-    #background-image {
+    #background-image-link {
         position: absolute;
         right: 0;
         margin-right: 0.5rem;
