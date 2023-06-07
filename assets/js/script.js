@@ -28,7 +28,12 @@ function MAX_Q(number) {
 function btnFunction(id1, id2) {
     let x = document.getElementById(id1);
     let y = document.getElementById(id2);
-    x.style.display === "none" ? x.style.display = "block" : x.style.display = "none", y.style.display = "block";
+    if (x.style.display === "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+        y.style.display = "block";
+    }
 }
 
 // Start(Play) game button
@@ -91,11 +96,11 @@ function timerShow() {
     downloadTimer = setInterval(() => {
         if (secondsLeft <= 0) {
             clearInterval(downloadTimer);
-                incorrectAnswer();
-                setTimeout(() => {
-                    getNewQuestion();
+            incorrectAnswer();
+            setTimeout(() => {
+                getNewQuestion();
 
-                }, 2000);
+            }, 2000);
         }
         time.innerText = --secondsLeft;
 
