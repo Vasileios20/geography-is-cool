@@ -216,3 +216,9 @@ My mentor Brian Macharia for guidance, support and feedback during the project.
 The tutors from [Code Institute](https://codeinstitute.net/) Martin, Holly and Sean for helping with the issues that I faced.
 
 The Facebook page [Η γεωγραφία είναι πολύ κουλ](https://www.facebook.com/geografitness) for letting me use their title and inspiring me to build this project.
+
+The people on slack community that took some time to test the quiz and give feedback.
+
+My friends who were my beta testers!
+
+And a massive thank you to my partner Vicky for the support and patience!
