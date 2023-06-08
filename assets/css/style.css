@@ -38,7 +38,7 @@ html {
     text-decoration: none;
     color: #eee;
     font-size: 3rem;
-    background-color: rgba(0, 0, 0, 01);
+    background-color: #000;
     width: 15rem;
 }
 
@@ -113,7 +113,7 @@ header {
 .btn {
     border: 0.1rem solid #000;
     color: #000;
-    background-color: aliceblue;
+    background-color: rgb(241, 241, 241);
     padding: 0.5rem;
     text-align: center;
     padding: 1rem 0;
@@ -139,7 +139,7 @@ header {
 
 .error-page a:hover {
     cursor: pointer;
-    box-shadow: 0 0.4rem 1.5rem 0 rgba(2, 27, 252, 0.5);
+    box-shadow: 0 0.4rem 1.5rem 0 rgba(241, 241, 241, 0.9);
     transform: translateY(0.1rem);
     transition: transform 150ms;
 }
