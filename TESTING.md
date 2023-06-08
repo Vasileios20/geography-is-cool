@@ -95,6 +95,11 @@ End Page
 |All buttons hover effect|Buttons should transform/transit and get shadow|Hover over buttons|Style had been applied on all buttons|PASS|
 |Go Home button|Redirect you to the home page|Clicked on button|Redirected to home page|PASS|
 
+404 error Page
+||||||
+|--|--|--|--|--|
+|Go Home Button|Redirects to home page|Clicked|Redirected to home page|PASS|
+
 ## BUGS
 
 ### Solved Bugs

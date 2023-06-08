@@ -17,6 +17,13 @@ a flag quiz game and it aims to entertain and educate people with the flags of a
   * [Wireframes](#wireframes)
 * [User Experience (UX)](#user-experience-ux)  
 * [Features](#features)
+  * [Home Page](#home-page)
+  * [Choose Level Page](#choose-level-page)
+  * [Game Page](#game-page)
+    * [Modal](#modal)
+  * [End Page](#end-page)
+  * [Highscores Page](#highscores-page)
+  * [404 error Page](#404-error-page)
 * [Technologies Used](#technologies-used)
   * [Languages Used](#languages-used)
   * [Frameworks, Libraries & Programs Used](#frameworks-libraries--programs-used)
@@ -124,10 +131,20 @@ The highscores page dislays a container with a table of the top 5 highscores and
 
 ![Highscores Page](documentation/images/highscores-page.png)
 
+## 404 error page
+
+The error page displays an error message and a button that redirects to the [home page](#home-page)
+
+![404 error page](documentation/images/404-error.png)
+
 # Technologies Used
+
 ## Languages Used
+
 HTML, CSS, JS
+
 ## Frameworks, Libraries & Programs Used
+
 * [GitHub](https://github.com/) - To save and store files for the website.
 * [GitPod](https://gitpod.io/) - IDE used to create the site.
 * [Techsini](https://techsini.com/multi-mockup/index.php) - To show the web image in various devices.
@@ -139,6 +156,7 @@ HTML, CSS, JS
 * [Coolors](https://coolors.co/) - To create colours palette.
 * [VSCode](https://code.visualstudio.com/) - Code editor used for local development.
 * [GetFireShot](https://getfireshot.com/) - To capture screeshots for testing images.
+
 # Deployment and Local Development
 
 ## Deployment
