@@ -103,10 +103,6 @@ End Page
 |1|When the game started the question counter was displaying undefined|I had to add a function to choose level page buttons to change the ```.innerHTML``` of the question counter on first display|
 |2|classToApply for correct/wrong (green/red) wouldn't be applied on click|Following the tutorial to build the quiz the code was written ```selectedChoice.parentElement.classList.add(classToApply)``` I had to remove the ```.parentElement```
 |3|Flags not diplayed on deployed site|I had to change the relevant path to the array of countries|
+|4|Towards the end of all flags level some answers are repeated and at the very end the same answer is displayed on all 4 options.|After have a meeting with my mentor we decided it's better to have 2 arrays to get question and answers. I wrote the code again to generate answers from the main array (countriesISO) and questions from the second array (availableCountries), in which I can remove one question(flag). Then for the answers create an array of 4 items, one is the correct answer (from the question generated) and 3 random answers|
 
-### Known Bugs
 
-|Bug|||
-|--|--|--|
-|Some times same answered are displayed twice|Code will be improved in the future to eliminate the issue|
-|Towards the end of all flags level some answers are repeated and at the very end the same answer is displayed on all 4 options. That happens because I have to use one array and in every question removes (splice()) the shown one.|Code will be improved in the future to eliminate the issue|
