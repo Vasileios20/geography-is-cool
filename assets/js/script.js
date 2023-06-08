@@ -15,7 +15,7 @@ let availableCountries = [];
 let MAX_QUESTIONS;
 let modalContent = document.getElementById("modal-content");
 let modal = document.getElementById("myModal");
-let question = document.getElementById("question-hidden");
+let question = document.getElementById('question-hidden');
 let time = document.getElementById("timer");
 let secondsLeft = 10;
 let downloadTimer;
@@ -115,41 +115,6 @@ function startGame() {
     getNewQuestion();
 }
 
-function getRandomAnswer() {
-    let randomAnswer = Math.floor(Math.random() * countriesISO.length);
-    return countriesISO[randomAnswer].name;
-}
-// This function gets 4 random answers and display them. 
-function displayAnswers(maxAnswers) {
-    let numAnswersDisplayed = 0;
-
-    while (numAnswersDisplayed < maxAnswers) {
-        let answersElements = document.getElementsByClassName("answer");
-
-        for (let i = 0; i < answersElements.length; i++) {
-            answersElements[i].innerHTML = getRandomAnswer();
-        }
-        numAnswersDisplayed++;
-    }
-}
-// This function get the array of answers and generates one random question.
-function getRandomQuestion() {
-    let possibleQuestion = document.getElementsByClassName("answer");
-    let randomQuestion = Math.floor(Math.random() * possibleQuestion.length);
-    return possibleQuestion[randomQuestion];
-}
-// This function gets the question's name and finds it's index in the countriesISO array
-//  and displays the flag
-function displayQuestion() {
-    let flag = document.getElementById("question");
-    let question = document.getElementById("question-hidden");
-    question.innerHTML = getRandomQuestion().innerText;
-    let index = countriesISO.findIndex(x => x.name === question.innerText);
-    flag.src = countriesISO[index].flag;
-    // Remove one question from the array 
-    countriesISO.splice(index, 1);
-}
-
 // Code borrowed and edited from https://www.youtube.com/watch?v=Opje9VBrNfg&t=1791s 
 // Function to get a new question
 // There is question counter to stop the function
@@ -163,14 +128,69 @@ function getNewQuestion() {
         //go to the end page
         return window.location.assign("end.html");
     }
+    function getRandomQIndex() {
+        let randomIndex = Math.floor(Math.random() * availableCountries.length);
+        return availableCountries[randomIndex];
+    }
+
+    function questionName() {
+        let index = getRandomQIndex();
+        let countryName = index.name;
+        return countryName;
+    }
+
+    function questionIndex() {
+        let ques = questionName();
+        let index = availableCountries.findIndex(x => x.name === ques);
+        return index;
+    }
+
+    let countryIndex = questionIndex();
+
+    function displayQuestion() {
+        let question = document.getElementById('question-hidden');
+        let flag = document.getElementById('question');
+        flag.src = availableCountries[countryIndex].flag;
+        question.innerHTML = availableCountries[countryIndex].name;
+    }
+
+    function getRandomAnswer() {
+        let randomIndex = Math.floor(Math.random() * countriesISO.length);
+        return countriesISO[randomIndex].name;
+    }
+
+    function displayAnswers() {
+        let answerChoices = [];
+        answerChoices.push(availableCountries[countryIndex].name);
+
+        while (answerChoices.length < 4) {
+
+            getRandomAnswer();
+
+            const newAnswer = getRandomAnswer();
+
+            if (!answerChoices.includes(newAnswer)) {
+
+                answerChoices.push(newAnswer);
+            }
+        }
+        answerChoices.sort(function(){return 0.5 - Math.random();});
+
+        let answersElements = document.getElementsByClassName("answer");
+
+        for (let i = 0; i < 4; i++) {
+            answersElements[i].innerHTML = answerChoices[i];
+        }
+    }
     time.style.display = "block";
     modal.style.display = "none";
     questionCounter++;
     questionCounterText.innerText = `${questionCounter}/${MAX_QUESTIONS}`;
     time.innerText = 10;
-    displayAnswers(4);
+    displayAnswers();
     displayQuestion();
     timerShow();
+    availableCountries.splice(countryIndex, 1);
     acceptingAnswers = true;
 }
 function correctAnswer() {
@@ -208,7 +228,6 @@ choices.forEach(choice => {
                 incorrectAnswer();
             }
         }, 500);
-
 
         selectedChoice.classList.add(classToApply);
         clearInterval(downloadTimer);
