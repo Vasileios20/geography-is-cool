@@ -11,7 +11,6 @@ The project has been tested in the following browsers Google Chrome, Firefox, Sa
 * [Manual Testing](#manual-testing)
 * [Bugs](#bugs)
   * [Solved Bugs](#solved-bugs)
-  * [Known Bugs](#known-bugs)
 
 W3C Validator have been used to check the HMTL & CSS.
 
@@ -29,7 +28,11 @@ WAVE have been used to test the accessibility of the site.
 
 ## W3C Validator
 
-[Home Page](documentation/images/)
+[Home Page](documentation/images/w3c-index.png)
+
+[End Page](documentation/images/w3c-end.png)
+
+[CSS](documentation/images/w3c-css.png)
 
 ## Lighthouse
 
