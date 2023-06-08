@@ -84,14 +84,17 @@ a flag quiz game and it aims to entertain and educate people with the flags of a
   ||I want to find out who the author is|
   ||I want to connect on their social media|
   |Returning User|I want to choose level of difficulty| 
-  ||I want to choose different levels of dificculty such as speed $round^1$|
-  ||I want to choose different level of questions such as flags per $continent^1$|
-  |Frequent User|I want to choose different type of questions such as find the capital of the $country^1$|
-  ||I want to choose different type of questions such as find the country on the $map[^1,^2]$|
+  ||I want to choose different levels of dificculty such as speed round $^1$|
+  ||I want to choose different level of questions such as flags per continent $^1$|
+  |Frequent User|I want to choose different type of questions such as find the capital of the country $^1$|
+  ||I want to choose different type of questions such as find the country on the map $[^1, ^2]$|
+  ||I want to save my score and compare it against other people's score $^1, ^3$|
   
   $^1$ To be implemented in the future
 
   $^2$ A map will be added, the user will have either to drag and drop the country on the map or click on the map to answer.
+
+  $^3$ Connect to/create a backend database to save scores.
 
 # Features
 
