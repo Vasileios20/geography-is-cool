@@ -227,7 +227,7 @@ Background [Image by macrovector on Freepik]("https://www.freepik.com/free-vecto
 ## Aknowledgments
 My mentor Brian Macharia for guidance, support and feedback during the project.
 
-The tutors from [Code Institute](https://codeinstitute.net/) Martin, Holly and Sean for helping with the issues that I faced.
+The tutors from [Code Institute](https://codeinstitute.net/) Martin, Holly, Ed and Sean for helping with the issues that I faced.
 
 The Facebook page [Η γεωγραφία είναι πολύ κουλ](https://www.facebook.com/geografitness) for letting me use their title and inspiring me to build this project.
 
