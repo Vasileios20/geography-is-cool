@@ -15,10 +15,38 @@ html {
     font-family: 'Comfortaa', 'cursive', 'sans-serif';
 }
 
+#error-page {
+    background-image: url(../images/hero-img.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    
+}
+
+.error-page-container {
+    margin: auto;
+    color: #000;
+}
+
+.error-page {
+    border: none;
+    background-color: rgba(1,136,188, 0.9);
+    border-radius: 1rem;
+}
+
+.error-page a {
+    margin-top: 10rem;
+    text-decoration: none;
+    color: #eee;
+    font-size: 3rem;
+    background-color: rgba(0, 0, 0, 01);
+    width: 15rem;
+}
+
 body {
     height: 100vh;
     width: 100vw;
     background-image: url(../images/hero-img1.jpg);
+    background-position: center center;
     display: flex;
     flex-direction: column;
 }
@@ -107,6 +135,13 @@ header {
     cursor: not-allowed;
     box-shadow: none;
     transform: none;
+}
+
+.error-page a:hover {
+    cursor: pointer;
+    box-shadow: 0 0.4rem 1.5rem 0 rgba(2, 27, 252, 0.5);
+    transform: translateY(0.1rem);
+    transition: transform 150ms;
 }
 
 #btn-back {
@@ -392,6 +427,9 @@ footer a {
 
     .div-list {
         margin: 1rem;
+    }
+    .error-page {
+        margin: 0 1rem;
     }
 }
 
