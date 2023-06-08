@@ -34,11 +34,26 @@ a flag quiz game and it aims to entertain and educate people with the flags of a
     * [How to clone](#how-to-clone)
 * [Testing](#testing)
 * [Credits](#credits)
+  * [Title](#title)
+  * [Code Used](#code-used)
+  * [Media](#media)
+  * [Aknowledgments](#aknowledgments)
 
 # Design
 
    ## Colour Scheme
    ![Colour palette](documentation/images/gic.png)
+
+   The colours were chosen to match the background's image colours.
+
+   Other colours used:
+   
+   #000
+   
+   #eee
+   
+   rgb(1,136,188)
+
    ## Typography
    The Comfortaa font was chosen because of its rounded edges that make it easy to read.
    
@@ -71,8 +86,7 @@ a flag quiz game and it aims to entertain and educate people with the flags of a
   |Returning User|I want to choose level of difficulty| 
   ||I want to choose different levels of dificculty such as speed $round^1$|
   ||I want to choose different level of questions such as flags per $continent^1$|
-  |Frequent User | I want to find out if there is a new $service^1$|
-  ||I want to choose different type of questions such as find the capital of the $country^1$|
+  |Frequent User|I want to choose different type of questions such as find the capital of the $country^1$|
   ||I want to choose different type of questions such as find the country on the $map[^1,^2]$|
   
   $^1$ To be implemented in the future
@@ -156,6 +170,8 @@ HTML, CSS, JS
 * [Coolors](https://coolors.co/) - To create colours palette.
 * [VSCode](https://code.visualstudio.com/) - Code editor used for local development.
 * [GetFireShot](https://getfireshot.com/) - To capture screeshots for testing images.
+* [Obsidian](https://obsidian.md/) - To keep notes.
+* [Font Awsome](https://fontawesome.com/icons) - To create icons
 
 # Deployment and Local Development
 
@@ -203,13 +219,11 @@ To build the project I followed the [Code Geek](https://www.youtube.com/watch?v=
 
 I used [W3Schools](https://www.w3schools.com/) and [stackoverflow](https://stackoverflow.com/) for varius enquiries I had through the proccess of building the quiz.
 
-To generate and display answers and question a combination of [stackoverflow](https://stackoverflow.com/questions/43893667/adding-answers-to-a-random-questions-quiz-javascript) and [shecodes](https://www.shecodes.io/athena/10246-how-to-show-random-questions-in-a-quiz-using-javascript) article.
-
 ## Media
 
 Background [Image by macrovector on Freepik]("https://www.freepik.com/free-vector/old-colored-map_9386675.htm#page=2&query=world%20map&position=33&from_view=search&track=ais") 
 
-
+404 page background [Image by Vectonauta on Freepik](https://www.freepik.com/free-vector/blue-watercolor-map-world_20157123.htm#query=world%20map&position=46&from_view=search&track=ais)
 ## Aknowledgments
 My mentor Brian Macharia for guidance, support and feedback during the project.
 
